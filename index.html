@@ -713,4 +713,726 @@
             flex: 1;
         }
 
-        .commenter-n
+        .commenter-name {
+            font-weight: 800;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .verified-inline {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: linear-gradient(135deg, rgba(56, 151, 240, 0.2), rgba(24, 119, 242, 0.2));
+            color: #3897f0;
+            font-size: 10px;
+            font-weight: 900;
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(56, 151, 240, 0.3);
+        }
+
+        .comment-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .flag {
+            font-size: 18px;
+        }
+
+        .comment-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 18px;
+            padding-left: 70px;
+        }
+
+        .comment-actions {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding-left: 70px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .comment-action {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 700;
+        }
+
+        .comment-action:hover {
+            color: #00f5ff;
+            transform: scale(1.05);
+        }
+
+        .comment-action.liked {
+            color: #ed4956;
+        }
+
+        .floating-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(20px);
+            padding: 20px;
+            border-top: 1px solid rgba(0, 245, 255, 0.2);
+            z-index: 100;
+            display: none;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+        }
+
+        .floating-cta.show {
+            display: block;
+            animation: slideUp 0.3s ease;
+        }
+
+        .floating-cta .submit-btn {
+            margin: 0;
+            padding: 18px;
+            font-size: 16px;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 15px;
+                padding-bottom: 100px;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            .friends-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 8px;
+            }
+            
+            .friend-avatar {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .floating-cta {
+                display: block;
+            }
+        }
+
+        .notification-toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.95);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            border-radius: 16px;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .notification-toast.show {
+            transform: translateX(0);
+        }
+
+        .notification-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        .notification-text {
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .notification-text strong {
+            display: block;
+            color: #00f5ff;
+            margin-bottom: 4px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="neon-grid"></div>
+
+    <div class="container">
+        <div class="hero-section">
+            <!-- Spiral Verification Badge -->
+            <div class="spiral-container">
+                <div class="spiral-ring"></div>
+                <div class="profile-image-container">
+                    <img src="https://kimi-web-img.moonshot.cn/img/m.media-amazon.com/498c46f581d4627b838eeec0483a1732cf5f7be1.jpg" alt="Keanu Reeves">
+                </div>
+                <div class="verified-check-spiral">✓</div>
+            </div>
+            
+            <div class="verified-text-main">Meta Verified</div>
+            
+            <h1>Keanu Reeves</h1>
+            
+            <div class="relationship-status">
+                Single • Not Dating
+            </div>
+            
+            <p class="subtitle">Actor • Producer • Musician • Philanthropist<br>Direct WhatsApp Connection</p>
+        </div>
+
+        <div class="viral-stats">
+            <div class="viral-stat">
+                <span class="stat-icon">👁️</span>
+                <span class="stat-number">109M</span>
+                <span class="stat-label">Views</span>
+            </div>
+            <div class="viral-stat">
+                <span class="stat-icon">❤️</span>
+                <span class="stat-number">42M</span>
+                <span class="stat-label">Likes</span>
+            </div>
+            <div class="viral-stat">
+                <span class="stat-icon">💬</span>
+                <span class="stat-number">1.2M</span>
+                <span class="stat-label">Comments</span>
+            </div>
+        </div>
+
+        <!-- Celebrity Friends Section -->
+        <div class="friends-section">
+            <div class="friends-header">
+                <div class="friends-title">
+                    <span>⭐</span>
+                    <span>Top 10 Celebrity Friends</span>
+                </div>
+                <div class="friends-subtitle">Hollywood's Most Loved Circle</div>
+            </div>
+            
+            <div class="friends-grid">
+                <div class="friend-item">
+                    <div class="friend-avatar verified">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Winona_Ryder_2010.jpg/440px-Winona_Ryder_2010.jpg" alt="Winona Ryder">
+                    </div>
+                    <div class="friend-name">Winona</div>
+                </div>
+                <div class="friend-item">
+                    <div class="friend-avatar verified">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Reuni%C3%A3o_com_o_ator_norte-americano_Keanu_Reeves_%2846806576944%29_%28cropped%29.jpg/440px-Reuni%C3%A3o_com_o_ator_norte-americano_Keanu_Reeves_%2846806576944%29_%28cropped%29.jpg" alt="Sandra Bullock">
+                    </div>
+                    <div class="friend-name">Sandra</div>
+                </div>
+                <div class="friend-item">
+                    <div class="friend-avatar verified">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Leonardo_Dicaprio_Cannes_2019.jpg/440px-Leonardo_Dicaprio_Cannes_2019.jpg" alt="Leonardo DiCaprio">
+                    </div>
+                    <div class="friend-name">Leo</div>
+                </div>
+                <div class="friend-item">
+                    <div class="friend-avatar verified">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Halle_Berry_%2835197593093%29_%28cropped%29.jpg/440px-Halle_Berry_%2835197593093%29_%28cropped%29.jpg" alt="Halle Berry">
+                    </div>
+                    <div class="friend-name">Halle</div>
+                </div>
+                <div class="friend-item">
+                    <div class="friend-avatar verified">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Laurence_Fishburne_2009.jpg/440px-Laurence_Fishburne_2009.jpg" alt="Laurence Fishburne">
+                    </div>
+                    <div class="friend-name">Laurence</div>
+                </div>
+                <div class="friend-item">
+                    <div class="friend-avatar verified">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/John_Wick_Keeanu_Reeves.jpg/440px-John_Wick_Keeanu_Reeves.jpg" alt="Ian McShane">
+                    </div>
+                    <div class="friend-name">Ian</div>
+                </div>
+                <div class="friend-item">
+                    <div class="friend-avatar verified">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Chris_Evans_2020_%28cropped%29.jpg/440px-Chris_Evans_2020_%28cropped%29.jpg" alt="Chris Evans">
+                    </div>
+                    <div class="friend-name">Chris</div>
+                </div>
+                <div class="friend-item">
+                    <div class="friend-avatar verified">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Charlize_Theron_Cannes_2015_2.jpg/440px-Charlize_Theron_Cannes_2015_2.jpg" alt="Charlize Theron">
+                    </div>
+                    <div class="friend-name">Charlize</div>
+                </div>
+                <div class="friend-item">
+                    <div class="friend-avatar verified">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Robert_Downey_Jr._2014_Cannes_%28cropped%29.jpg/440px-Robert_Downey_Jr._2014_Cannes_%28cropped%29.jpg" alt="Robert Downey Jr.">
+                    </div>
+                    <div class="friend-name">RDJ</div>
+                </div>
+                <div class="friend-item">
+                    <div class="friend-avatar verified">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Tom_Hanks_2016.jpg/440px-Tom_Hanks_2016.jpg" alt="Tom Hanks">
+                    </div>
+                    <div class="friend-name">Tom</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-container">
+            <div class="form-header">
+                <div class="form-title">
+                    <span>💎</span>
+                    <span>Private Message</span>
+                </div>
+                <div class="form-subtitle">Connect directly with Keanu</div>
+            </div>
+
+            <form id="whatsappForm">
+                <div class="form-group">
+                    <label class="form-label">Your Country</label>
+                    <div class="country-select-wrapper">
+                        <select class="country-select" id="countrySelect">
+                            <option value="+1" data-flag="🇺🇸">🇺🇸 United States (+1)</option>
+                            <option value="+44" data-flag="🇬🇧">🇬🇧 United Kingdom (+44)</option>
+                            <option value="+61" data-flag="🇦🇺">🇦🇺 Australia (+61)</option>
+                            <option value="+49" data-flag="🇩🇪">🇩🇪 Germany (+49)</option>
+                            <option value="+33" data-flag="🇫🇷">🇫🇷 France (+33)</option>
+                            <option value="+39" data-flag="🇮🇹">🇮🇹 Italy (+39)</option>
+                            <option value="+34" data-flag="🇪🇸">🇪🇸 Spain (+34)</option>
+                            <option value="+55" data-flag="🇧🇷">🇧🇷 Brazil (+55)</option>
+                            <option value="+52" data-flag="🇲🇽">🇲🇽 Mexico (+52)</option>
+                            <option value="+81" data-flag="🇯🇵">🇯🇵 Japan (+81)</option>
+                            <option value="+82" data-flag="🇰🇷">🇰🇷 South Korea (+82)</option>
+                            <option value="+91" data-flag="🇮🇳">🇮🇳 India (+91)</option>
+                            <option value="+86" data-flag="🇨🇳">🇨🇳 China (+86)</option>
+                            <option value="+7" data-flag="🇷🇺">🇷🇺 Russia (+7)</option>
+                            <option value="+65" data-flag="🇸🇬">🇸🇬 Singapore (+65)</option>
+                            <option value="+971" data-flag="🇦🇪">🇦🇪 UAE (+971)</option>
+                            <option value="+966" data-flag="🇸🇦">🇸🇦 Saudi Arabia (+966)</option>
+                            <option value="+20" data-flag="🇪🇬">🇪🇬 Egypt (+20)</option>
+                            <option value="+27" data-flag="🇿🇦">🇿🇦 South Africa (+27)</option>
+                            <option value="+31" data-flag="🇳🇱">🇳🇱 Netherlands (+31)</option>
+                            <option value="+46" data-flag="🇸🇪">🇸🇪 Sweden (+46)</option>
+                            <option value="+47" data-flag="🇳🇴">🇳🇴 Norway (+47)</option>
+                            <option value="+45" data-flag="🇩🇰">🇩🇰 Denmark (+45)</option>
+                            <option value="+48" data-flag="🇵🇱" selected>🇵🇱 Poland (+48)</option>
+                            <option value="+43" data-flag="🇦🇹">🇦🇹 Austria (+43)</option>
+                            <option value="+41" data-flag="🇨🇭">🇨🇭 Switzerland (+41)</option>
+                            <option value="+90" data-flag="🇹🇷">🇹🇷 Turkey (+90)</option>
+                            <option value="+62" data-flag="🇮🇩">🇮🇩 Indonesia (+62)</option>
+                            <option value="+60" data-flag="🇲🇾">🇲🇾 Malaysia (+60)</option>
+                            <option value="+63" data-flag="🇵🇭">🇵🇭 Philippines (+63)</option>
+                            <option value="+64" data-flag="🇳🇿">🇳🇿 New Zealand (+64)</option>
+                            <option value="+351" data-flag="🇵🇹">🇵🇹 Portugal (+351)</option>
+                            <option value="+353" data-flag="🇮🇪">🇮🇪 Ireland (+353)</option>
+                            <option value="+358" data-flag="🇫🇮">🇫🇮 Finland (+358)</option>
+                            <option value="+420" data-flag="🇨🇿">🇨🇿 Czech Republic (+420)</option>
+                            <option value="+36" data-flag="🇭🇺">🇭🇺 Hungary (+36)</option>
+                            <option value="+30" data-flag="🇬🇷">🇬🇷 Greece (+30)</option>
+                            <option value="+32" data-flag="🇧🇪">🇧🇪 Belgium (+32)</option>
+                            <option value="+972" data-flag="🇮🇱">🇮🇱 Israel (+972)</option>
+                            <option value="+98" data-flag="🇮🇷">🇮🇷 Iran (+98)</option>
+                            <option value="+964" data-flag="🇮🇶">🇮🇶 Iraq (+964)</option>
+                            <option value="+212" data-flag="🇲🇦">🇲🇦 Morocco (+212)</option>
+                            <option value="+234" data-flag="🇳🇬">🇳🇬 Nigeria (+234)</option>
+                            <option value="+254" data-flag="🇰🇪">🇰🇪 Kenya (+254)</option>
+                            <option value="+54" data-flag="🇦🇷">🇦🇷 Argentina (+54)</option>
+                            <option value="+56" data-flag="🇨🇱">🇨🇱 Chile (+56)</option>
+                            <option value="+57" data-flag="🇨🇴">🇨🇴 Colombia (+57)</option>
+                        </select>
+                        <span class="select-arrow">▼</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">WhatsApp Number</label>
+                    <div class="phone-input-wrapper">
+                        <div class="country-code-display" id="countryCode">+48</div>
+                        <input type="tel" class="phone-input" id="phoneNumber" placeholder="729 971 441" maxlength="15">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Your Message</label>
+                    <textarea class="message-input" id="messageText" placeholder="Hi Keanu! I'm a huge fan of your work in The Matrix and John Wick..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span>💬</span>
+                    <span>Send to Keanu</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="comments-section">
+            <div class="section-header">
+                <div class="section-title">
+                    🌟 Fan Love
+                    <span style="color: #666; font-size: 16px;">(1,247,893)</span>
+                </div>
+                <div class="live-indicator">
+                    <span class="live-dot"></span>
+                    <span>Live</span>
+                </div>
+            </div>
+
+            <div id="commentsContainer">
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="commenter-avatar verified" style="background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);">A</div>
+                        <div class="commenter-info">
+                            <div class="commenter-name">
+                                Alexandra Chen
+                                <span class="verified-inline">✓ Verified</span>
+                            </div>
+                            <div class="comment-meta">
+                                <span class="flag">🇺🇸</span>
+                                <span>San Francisco, CA</span>
+                                <span>•</span>
+                                <span>Just now</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        "Keanu, your performance in The Matrix literally changed my life. I became a software engineer because of Neo! The way you carry yourself with such humility despite being a global superstar is truly inspiring. You're not just an actor, you're a role model. Thank you for being you! 💊🔴"
+                    </div>
+                    <div class="comment-actions">
+                        <span class="comment-action liked">❤️ 24.5K</span>
+                        <span class="comment-action">💬 892</span>
+                        <span class="comment-action">↗️ Share</span>
+                    </div>
+                </div>
+
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="commenter-avatar verified" style="background: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);">M</div>
+                        <div class="commenter-info">
+                            <div class="commenter-name">
+                                Marco Rossi
+                                <span class="verified-inline">✓ Verified</span>
+                            </div>
+                            <div class="comment-meta">
+                                <span class="flag">🇮🇹</span>
+                                <span>Rome, Italy</span>
+                                <span>•</span>
+                                <span>2 min ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        "John Wick is the greatest action franchise ever made! Your dedication to doing your own stunts at your age is incredible. The Continental, the gold coins, the mythology - pure cinema perfection! Sei una leggenda, Keanu! 🇮🇹🎬"
+                    </div>
+                    <div class="comment-actions">
+                        <span class="comment-action liked">❤️ 18.9K</span>
+                        <span class="comment-action">💬 567</span>
+                        <span class="comment-action">↗️ Share</span>
+                    </div>
+                </div>
+
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="commenter-avatar" style="background: linear-gradient(135deg, #00d2d3 0%, #01a3a4 100%);">Y</div>
+                        <div class="commenter-info">
+                            <div class="commenter-name">
+                                Yuki Tanaka
+                            </div>
+                            <div class="comment-meta">
+                                <span class="flag">🇯🇵</span>
+                                <span>Tokyo, Japan</span>
+                                <span>•</span>
+                                <span>5 min ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        "Speed was the first Hollywood movie I ever saw! You and Sandra Bullock had amazing chemistry. Also loved your cameo in Always Be My Maybe - hilarious! ありがとうございます for all the memories! 🚌💨"
+                    </div>
+                    <div class="comment-actions">
+                        <span class="comment-action">❤️ 12.3K</span>
+                        <span class="comment-action">💬 445</span>
+                        <span class="comment-action">↗️ Share</span>
+                    </div>
+                </div>
+
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="commenter-avatar verified" style="background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);">S</div>
+                        <div class="commenter-info">
+                            <div class="commenter-name">
+                                Sarah Johnson
+                                <span class="verified-inline">✓ Verified</span>
+                            </div>
+                            <div class="comment-meta">
+                                <span class="flag">🇬🇧</span>
+                                <span>London, UK</span>
+                                <span>•</span>
+                                <span>8 min ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        "I heard you're single and I just want to say - any woman would be incredibly lucky to have you! But seriously, your kindness to strangers, your generosity with your money, and your passion for your craft make you the most eligible bachelor in Hollywood. Stay amazing! 💎❤️"
+                    </div>
+                    <div class="comment-actions">
+                        <span class="comment-action liked">❤️ 31.2K</span>
+                        <span class="comment-action">💬 1.2K</span>
+                        <span class="comment-action">↗️ Share</span>
+                    </div>
+                </div>
+
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="commenter-avatar verified" style="background: linear-gradient(135deg, #54a0ff 0%, #2e86de 100%);">D</div>
+                        <div class="commenter-info">
+                            <div class="commenter-name">
+                                David Kim
+                                <span class="verified-inline">✓ Verified</span>
+                            </div>
+                            <div class="comment-meta">
+                                <span class="flag">🇰🇷</span>
+                                <span>Seoul, South Korea</span>
+                                <span>•</span>
+                                <span>12 min ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        "Cyberpunk 2077 brought you to a whole new generation of fans! Johnny Silverhand is iconic. 'Wake the f*** up, Samurai. We have a city to burn!' 🔥 Your voice acting was incredible. Also loved your band Dogstar! Come tour in Korea please! 🎸"
+                    </div>
+                    <div class="comment-actions">
+                        <span class="comment-action liked">❤️ 22.7K</span>
+                        <span class="comment-action">💬 678</span>
+                        <span class="comment-action">↗️ Share</span>
+                    </div>
+                </div>
+
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="commenter-avatar" style="background: linear-gradient(135deg, #feca57 0%, #ff9f43 100%);">L</div>
+                        <div class="commenter-info">
+                            <div class="commenter-name">
+                                Lucia Martinez
+                            </div>
+                            <div class="comment-meta">
+                                <span class="flag">🇪🇸</span>
+                                <span>Barcelona, Spain</span>
+                                <span>•</span>
+                                <span>18 min ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        "Constantine is so underrated! You were the perfect John Constantine. The way you portrayed that character's pain and redemption was masterful. We need a sequel! Also, your friendship with Winona Ryder is the cutest thing ever! 🚬😈"
+                    </div>
+                    <div class="comment-actions">
+                        <span class="comment-action">❤️ 15.4K</span>
+                        <span class="comment-action">💬 523</span>
+                        <span class="comment-action">↗️ Share</span>
+                    </div>
+                </div>
+
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="commenter-avatar verified" style="background: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);">R</div>
+                        <div class="commenter-info">
+                            <div class="commenter-name">
+                                Raj Patel
+                                <span class="verified-inline">✓ Verified</span>
+                            </div>
+                            <div class="comment-meta">
+                                <span class="flag">🇮🇳</span>
+                                <span>Mumbai, India</span>
+                                <span>•</span>
+                                <span>25 min ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        "Bill & Ted Face the Music was exactly what we needed in 2020! Be excellent to each other, and party on dudes! 🎸⚡ Your friendship with Alex Winter spanning decades is beautiful. Also, thank you for secretly funding children's hospitals. You're a true humanitarian! 🙏"
+                    </div>
+                    <div class="comment-actions">
+                        <span class="comment-action liked">❤️ 28.1K</span>
+                        <span class="comment-action">💬 945</span>
+                        <span class="comment-action">↗️ Share</span>
+                    </div>
+                </div>
+
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="commenter-avatar" style="background: linear-gradient(135deg, #00d2d3 0%, #01a3a4 100%);">E</div>
+                        <div class="commenter-info">
+                            <div class="commenter-name">
+                                Emma Wilson
+                            </div>
+                            <div class="comment-meta">
+                                <span class="flag">🇦🇺</span>
+                                <span>Sydney, Australia</span>
+                                <span>•</span>
+                                <span>32 min ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        "Point Break is a masterpiece! You and Patrick Swayze had such incredible chemistry. I cry every time at the end. 'He's not coming back.' 😭 Also loved you in The Devil's Advocate - that scene with the subway! You're the GOAT! 🏄‍♂️"
+                    </div>
+                    <div class="comment-actions">
+                        <span class="comment-action">❤️ 19.8K</span>
+                        <span class="comment-action">💬 712</span>
+                        <span class="comment-action">↗️ Share</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; padding: 40px 0 20px; color: #444; font-size: 12px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px;">
+            <p style="margin-bottom: 8px; font-weight: 600;">© 2024 Keanu Reeves Official Connection</p>
+            <p>Verified by Meta • End-to-End Encrypted • Private & Secure</p>
+        </div>
+    </div>
+
+    <div class="floating-cta" id="floatingCta">
+        <button class="submit-btn" onclick="document.getElementById('whatsappForm').scrollIntoView({behavior: 'smooth'})">
+            <span>💎</span>
+            <span>Message Keanu Now</span>
+        </button>
+    </div>
+
+    <div class="notification-toast" id="notificationToast">
+        <div class="notification-avatar">N</div>
+        <div class="notification-text">
+            <strong>New Fan Connected</strong>
+            <span>From <span id="notifCountry">Brazil</span> • Just now</span>
+        </div>
+    </div>
+
+    <script>
+        // Country selection functionality
+        const countrySelect = document.getElementById('countrySelect');
+        const countryCode = document.getElementById('countryCode');
+        
+        countrySelect.addEventListener('change', (e) => {
+            countryCode.textContent = e.target.value;
+        });
+
+        // Form submission
+        const form = document.getElementById('whatsappForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const phone = document.getElementById('phoneNumber').value.replace(/\s/g, '');
+            const message = encodeURIComponent(document.getElementById('messageText').value || "Hi Keanu! I'm a huge fan!");
+            const code = countryCode.textContent;
+            
+            if (phone.length < 7) {
+                alert('Please enter a valid phone number');
+                return;
+            }
+            
+            const whatsappUrl = `https://wa.me/48729971441?text=${message}%0A%0AFrom:%20${code}${phone}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Show floating CTA on scroll
+        const floatingCta = document.getElementById('floatingCta');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                floatingCta.classList.add('show');
+            } else {
+                floatingCta.classList.remove('show');
+            }
+        });
+
+        // Comment like functionality
+        document.querySelectorAll('.comment-action').forEach(btn => {
+            if (btn.textContent.includes('❤️')) {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('liked');
+                    if (this.classList.contains('liked')) {
+                        this.style.transform = 'scale(1.2)';
+                        setTimeout(() => this.style.transform = '', 200);
+                    }
+                });
+            }
+        });
+
+        // Simulate live notifications
+        const countries = ['Japan', 'Brazil', 'Germany', 'France', 'Canada', 'Mexico', 'India', 'UK', 'Australia', 'South Korea'];
+        const notificationToast = document.getElementById('notificationToast');
+        const notifCountry = document.getElementById('notifCountry');
+        
+        setInterval(() => {
+            if (Math.random() > 0.6) {
+                notifCountry.textContent = countries[Math.floor(Math.random() * countries.length)];
+                notificationToast.classList.add('show');
+                setTimeout(() => {
+                    notificationToast.classList.remove('show');
+                }, 4000);
+            }
+        }, 10000);
+
+        // Add new comments periodically
+        const newComments = [
+            { name: 'Sophie', initial: 'S', country: '🇫🇷 France', text: "The way you treat your fans with respect is why you're the most loved actor in Hollywood! Merci! 🙏", color: 'linear-gradient(135deg, #ff6b6b 0%, #feca57 100%)' },
+            { name: 'Hassan', initial: 'H', country: '🇦🇪 UAE', text: "Your humility despite your success is truly inspiring. You're breathtaking! 🌟", color: 'linear-gradient(135deg, #5f27cd 0%, #341f97 100%)' },
+            { name: 'Olivia', initial: 'O', country: '🇨🇦 Canada', text: "Proud that you're Canadian! Representing us so well on the world stage! 🇨🇦❤️", color: 'linear-gradient(135deg, #00d2d3 0%, #01a3a4 100%)' }
+        ];
+
+        setInterval(() => {
+            if (Math.random() > 0.5) {
+                const comment = newComments[Math.floor(Math.random() * newComments.length)];
+                const container = document.getElementById('commentsContainer');
+                const card = document.createElement('div');
+                card.className = 'comment-card';
+                card.style.animation = 'slideUp 0.6s ease';
+                card.innerHTML = `
+                    <div class="comment-header">
+                        <div class="commenter-avatar" style="background: ${comment.color};">${comment.initial}</div>
+                        <div class="commenter-info">
+                            <div class="commenter-name">${comment.name}</div>
+                            <div class="comment-meta">
+                                <span class="flag">${comment.country.split(' ')[0]}</span>
+                                <span>${comment.country.substring(2)}</span>
+                                <span>•</span>
+                                <span>Just now</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-text">"${comment.text}"</div>
+                    <div class="comment-actions">
+                        <span class="comment-action">❤️ 0</span>
+                        <span class="comment-action">💬 Reply</span>
+                        <span class="comment-action">↗️ Share</span>
+                    </div>
+                `;
+                container.insertBefore(card, container.firstChild);
+                
+                if (container.children.length > 10) {
+                    container.removeChild(container.lastChild);
+                }
+            }
+        }, 15000);
+    </script>
+</body>
+</html>
